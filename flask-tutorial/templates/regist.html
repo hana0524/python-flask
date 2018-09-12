@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>ユーザ登録</h1>
+  <meta charset="utf-8">
+    <!-- ユーザ登録用のフォームを追加 -->
+    <form action="{{ url_for('add_user') }}" method="post" class="add-user">
+      <label for="username">Name</label>
+    <input type="text" class="form-control" id="username" name="username">
+    <button type="submit" class="btn btn-primary">
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> 追加
+    </button>
+    </form>
+</br>
+    <!-- 画像登録用 -->
+    <form method="post" action="{{ url_for('send') }}" enctype="multipart/form-data">
+     <input type="file" id="img_file" name="img_file" class="col-sm-4">
+   <button type="submit" class="btn btn-primary">
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> 送信
+    </button>
+    </form>
+    {% if img_url %}
+    <p><img src="{{ img_url }}"></p>
+    {% endif %}
+</br>
+    <!-- その他登録用のフォームを追加 -->
+    <form action="{{ url_for('add_user') }}" method="post" class="add-user">
+      <label for="username">Birthday</label>
+    <input type="text" class="form-control" id="username" name="username">
+    <button type="submit" class="btn btn-primary">
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> 追加
+    </button>
+    </form>
+</br>
+
+ <!-- トップに戻る -->
+ <a class="btn btn-default" href="{{ url_for('menu') }}">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> 戻る</a>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <h1>トップ画面</h1>
+  
+  {% for user in user_list %}
+      <li>Hello {{ user.username }}!</li>
+    {% endfor %}
+  
+  <!-- ユーザ一覧表示 -->
+   <a class="btn btn-default" href="{{ url_for('alluser') }}">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> ユーザ一覧へ</a></br>
+  </br>
+  <!-- ユーザ追加画面表示 -->
+     <a class="btn btn-default" href="{{ url_for('regist') }}">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> ユーザ登録へ</a></br>
+  </br>
+   <!-- トップに戻る -->
+ <a class="btn btn-default" href="{{ url_for('top') }}">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> 戻る</a></br>
+  </br>
+  
+{% endblock %}

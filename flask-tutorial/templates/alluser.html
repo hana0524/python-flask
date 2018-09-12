@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <h1>{{ title }}</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>詳細</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in user_list %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>
+          <a class="btn btn-success" href="{{ url_for('show_user', user_id=user.id) }}">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 詳細
+          </a>
+      </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+  <form action="{{ url_for('add_user') }}" method="post" class="form-inline">
+    <label for="username">Name</label>
+    <input type="text" class="form-control" id="username" name="username">
+    <button type="submit" class="btn btn-primary">
+      <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> 追加
+    </button>
+  </form>
+     <!-- トップに戻る -->
+ <a class="btn btn-default" href="{{ url_for('menu') }}">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> 戻る</a>
+{% endblock %}

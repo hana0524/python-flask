@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+{% block content %}
+  <h1>最初の画面</h1>
+    <!-- メニュー画面表示 -->
+   <a class="btn btn-default" href="{{ url_for('menu') }}">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> メニュー画面へ</a>
+  {% endblock %}
